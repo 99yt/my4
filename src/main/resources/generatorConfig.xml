@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+    <!-- 链接数据库的jar包的完整路径，一定要注意跟自己的仓库路径一致 ，注意修改  -->
+    <classPathEntry location="C:\Users\User\.m2\repository\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" ></classPathEntry>
+    <context id="context1" >
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/myschool?characterEncoding=utf-8"
+                        userId="root"
+                        password="123456" />
+        <!-- 生成POJO类的位置 -->
+        <javaModelGenerator targetPackage="com.bigdata.pojo" targetProject="src/main/java" />
+        <!-- mapper映射文件生成的位置 -->
+        <sqlMapGenerator targetPackage="com.bigdata.mapper" targetProject="src/main/java" />
+        <!-- mapper接口生成的位置 -->
+        <javaClientGenerator targetPackage="com.bigdata.dao" targetProject="src/main/java" type="XMLMAPPER" />
+        <!-- 指定数据库表  domainObjectName实体的名称-->
+        <table  tableName="UserInfo" domainObjectName="UserInfo"
+                enableCountByExample="false"
+                enableUpdateByExample="false"
+                enableSelectByExample="false"
+                enableDeleteByExample="false"
+        ></table>
+
+        <!-- <table  tableName="salesman" domainObjectName="Salesman"
+                 enableCountByExample="false"
+                 enableUpdateByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+         ></table>
+         <table  tableName="customer" domainObjectName="Customer"
+                 enableCountByExample="false"
+                 enableUpdateByExample="false"
+                 enableSelectByExample="false"
+                 enableDeleteByExample="false"
+         ></table>-->
+    </context>
+</generatorConfiguration>
